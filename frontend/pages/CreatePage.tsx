@@ -33,7 +33,7 @@ const LANGUAGES = [
 ];
 
 const EXPIRY_OPTIONS = [
-  { value: "", label: "Never" },
+  { value: "never", label: "Never" },
   { value: "10", label: "10 minutes" },
   { value: "60", label: "1 hour" },
   { value: "1440", label: "1 day" },
@@ -45,7 +45,7 @@ export function CreatePage() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [language, setLanguage] = useState("text");
-  const [expiresIn, setExpiresIn] = useState("");
+  const [expiresIn, setExpiresIn] = useState("never");
   const [creating, setCreating] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -68,7 +68,7 @@ export function CreatePage() {
         title: title.trim() || undefined,
         content: content.trim(),
         language,
-        expiresIn: expiresIn ? parseInt(expiresIn) : undefined,
+        expiresIn: expiresIn !== "never" ? parseInt(expiresIn) : undefined,
       });
 
       toast({
