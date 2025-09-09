@@ -1,0 +1,1 @@
+{"id": "pastebin-app-tgoi", "lang": "typescript"}
